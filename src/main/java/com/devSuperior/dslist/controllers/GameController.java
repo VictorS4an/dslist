@@ -18,9 +18,9 @@ import com.devSuperior.dslist.services.GameService;
 @RequestMapping(value = "/games") //definindo recurso Games
 public class GameController {
 
-	//injetando uma instância da interface GameService
+	//injetando uma instância da classe GameService
 	//no GameController (pois o GameController está uma camada
-	//acima do GameService
+	//acima do GameService)
 	@Autowired
 	private GameService gameService;
 	
