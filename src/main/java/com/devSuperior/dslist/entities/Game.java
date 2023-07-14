@@ -2,6 +2,7 @@ package com.devSuperior.dslist.entities;
 
 import java.util.Objects;
 
+
 //usa jakarta
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,13 +19,18 @@ public class Game {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;	
+	
 	@Column(name = "game_year")
 	private Integer year;//'year' é uma palavra reservada do SQL, se deixarmos, pode causar problemas
 	private String genre;
 	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	//construtor padrão
