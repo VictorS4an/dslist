@@ -35,7 +35,7 @@ public class GameController {
 	@GetMapping
 	public List<GameMinDTO> findAll()
 	{
-		List<GameMinDTO> listGameDto = gameService.findAll();
-		return listGameDto;
+		List<GameMinDTO> listGameMinDto = gameService.findAll();
+		return listGameMinDto;
 	}
 }

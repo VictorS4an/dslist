@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devSuperior.dslist.dto.GameDTO;
 import com.devSuperior.dslist.dto.GameMinDTO;
 import com.devSuperior.dslist.entities.Game;
+import com.devSuperior.dslist.projection.GameMinProjection;
 import com.devSuperior.dslist.repositories.GameRepository;
 
 
@@ -35,6 +36,16 @@ public class GameService {
 	public List<GameMinDTO> findAll()
 	{	
 		List<Game> listGames = gameRepository.findAll();
+		List<GameMinDTO> listGameMinDto = listGames.stream().map(x -> new GameMinDTO(x)).toList();
+		return listGameMinDto;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long listID)
+	//apesar de ser um método feito no GameService, não será o GameController que o utilizará,
+	//será o GameListController (Polêmico rsrs).
+	{	
+		List<GameMinProjection> listGames = gameRepository.searchByList(listID);
 		List<GameMinDTO> listGameDto = listGames.stream().map(x -> new GameMinDTO(x)).toList();
 		return listGameDto;
 	}
