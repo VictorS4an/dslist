@@ -22,7 +22,6 @@ public class GameMinDTO {// Uma classe DTO não necessita de um mapeamento para 
 	}
 
 	public GameMinDTO(Game entity) {//construtor recebe um objeto Game
-		super();
 		this.id = entity.getId();
 		this.title = entity.getTitle();
 		this.year = entity.getYear();

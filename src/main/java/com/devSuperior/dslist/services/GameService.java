@@ -41,11 +41,11 @@ public class GameService {
 	}
 	
 	@Transactional(readOnly = true)
-	public List<GameMinDTO> findByList(Long listID)
+	public List<GameMinDTO> findByList(Long listId)
 	//apesar de ser um método feito no GameService, não será o GameController que o utilizará,
 	//será o GameListController (Polêmico rsrs).
 	{	
-		List<GameMinProjection> listGames = gameRepository.searchByList(listID);
+		List<GameMinProjection> listGames = gameRepository.searchByList(listId);
 		List<GameMinDTO> listGameDto = listGames.stream().map(x -> new GameMinDTO(x)).toList();
 		return listGameDto;
 	}
